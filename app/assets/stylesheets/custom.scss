@@ -72,16 +72,17 @@ p {
   text-decoration: none;
 }
 
-
-#header_list {
-  color: #fff;
+li .header_list {
+  color: #fff !important;
+  background-color: teal !important;
   font-weight: bolder;
 }
 
-#header_list:hover {
-  color: #C0C0C0;
+li .header_list:hover {
+  color: #C0C0C0 !important;
   text-decoration: none;
 }
+
 /* デバッグウインドウ */
 
 .debug_dump {
