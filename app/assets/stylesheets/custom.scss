@@ -72,10 +72,16 @@ p {
   text-decoration: none;
 }
 
-#logo-right {
+
+#header_list {
   color: #fff;
+  font-weight: bolder;
 }
 
+#header_list:hover {
+  color: #C0C0C0;
+  text-decoration: none;
+}
 /* デバッグウインドウ */
 
 .debug_dump {
