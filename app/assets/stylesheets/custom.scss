@@ -17,6 +17,7 @@ textarea {
 
 .center {
   text-align: center;
+  background-color: white;
 }
 
 .center h1 {
@@ -50,6 +51,11 @@ p {
   line-height: 1.7em;
 }
 
+.top-main-title {
+  font-weight: bold;
+  font-size: 5em;
+  font-style: italic;
+}
 /* ヘッダー */
 .navbar-inverse {
   background-color: teal;
