@@ -1,0 +1,16 @@
+<h1><%= @user.name %>のタスク一覧</h1>
+
+<table>
+  <tr>
+    <th>名称</th>
+    <th>作成日</th>
+  </tr>
+  
+  <tr>
+    <% @tasks.each do |task| %>
+      <div class="tasks-index-item">
+        <%= task %>
+      </div>
+    <% end%>
+  </tr>
+</table>

@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
-  def new
+  def index
+    @user = User.find(params[:id])
+    @task = Task.find(params[:user_id])
   end
 end
