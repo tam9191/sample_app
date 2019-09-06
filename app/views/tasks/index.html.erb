@@ -1,11 +1,20 @@
+<% provide(:title, @user.name) %>
+
 <h1><%= @user.name %>のタスク一覧</h1>
 
-<table>
-  <tr>
-    <th>名称</th>
-    <th>作成日</th>
-  </tr>
+<div class="row">
+<div class="col-md-8 col-md-offset-1">
+  <table class="table table-hover" id="table-tasks">
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>作成日</th>
+        <th></th>
+      </tr>
+    </thead>
+  </table> 
   
+  <tbody>
   <tr>
     <% @task.each do |task| %>
       <div class="tasks-index-item">
@@ -13,4 +22,6 @@
       </div>
     <% end%>
   </tr>
-</table>
+</tbody>
+</div>
+</div>
