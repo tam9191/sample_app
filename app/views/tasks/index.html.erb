@@ -12,16 +12,16 @@
         <th></th>
       </tr>
     </thead>
-  </table> 
+
   
-  <tbody>
-  <tr>
-    <% @task.each do |task| %>
-      <div class="tasks-index-item">
-        <%= task %>
-      </div>
-    <% end%>
-  </tr>
-</tbody>
+    <tbody>
+      <% @task.each do |task| %>
+          <tr>
+          <td><%= link_to task.name, user_tasks_path(@user, task), id: "task-name" %></td>
+          <td><%= l(task.created_at, format: :long) %></td>
+      <% end %>
+          </tr>
+    </tbody>
+  </table> 
 </div>
 </div>

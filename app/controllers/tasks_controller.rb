@@ -27,4 +27,8 @@ class TasksController < ApplicationController
     def set_user
       @user = User.find(params[:user_id])
     end
+    
+    def task_params
+      params.require(:task).permit(:name, :description)
+    end
 end
