@@ -23,9 +23,11 @@ class TasksController < ApplicationController
   end
     
   def edit
+    @task = Task.find(params[:id])
   end
     
   def update
+    @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
         flash[:success] = "タスクを更新しました。"
         redirect_to user_task_url(@user, @task)
@@ -36,11 +38,13 @@ class TasksController < ApplicationController
   
   private
   
-    def set_user
-      @user = User.find(params[:user_id])
-    end
-    
+      
     def task_params
       params.require(:task).permit(:name, :description)
     end
+    
+    def set_user
+      @user = User.find(params[:user_id])
+    end
+  
 end
