@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <th class="active"><%= Task.human_attribute_name :description %></th>
-          <td><%= @task.description %></td>
+          <td><%= description_url_to_link(@task.description).html_safe  %></td>
         </tr>
         <tr>
           <th class="active"><%= Task.human_attribute_name :created_at %></th>
@@ -28,5 +28,8 @@
         </tr>
       </tbody>
     </table>
+    <td><%= link_to "編集", edit_user_task_path(@user, @task), class: "btn btn-success" %>
+        <%= link_to "削除", user_task_path(@user, @task), method: :delete, 
+                  data: { confirm: "「#{@task.name}」を削除します。よろしいですか？" }, class: "btn btn-danger" %></td>
   </div>
 </div>

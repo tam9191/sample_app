@@ -14,8 +14,13 @@
       <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
     </p>
     <p>
-      <%= link_to "ゲストログイン(管理権限)", "#", class: "btn btn-md btn-danger" %>
-      <%= link_to "ゲストログイン(一般権限)", "#", class: "btn btn-md btn-warning" %>
+    <% if logged_in? %>
+      <%= link_to "ゲストログイン(管理権限)", "#", class: "btn btn-md btn-danger", disabled: "disabled" %>
+      <%= link_to "ゲストログイン(一般権限)", "#", class: "btn btn-md btn-warning", disabled: "disabled" %>
+    <% else %>
+      <%= link_to "ゲストログイン(管理権限)", login_path, class: "btn btn-md btn-danger" %>
+      <%= link_to "ゲストログイン(一般権限)", login_path, class: "btn btn-md btn-warning" %>
+    <% end %>
     </p>
     </div>
   </div>
@@ -23,19 +28,30 @@
   <div class="col-md-4">
       <h1>ログイン</h1>
       <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+      <% if logged_in? %>
 
-        <%= f.label :email, t("sessions.new.email"), class: "label-login" %>
+        <%= f.label :email, "メールアドレス", class: "label-login" %>
+        <%= f.email_field :email, class: 'form-control', readonly: true %>
+
+        <%= f.label :password, "パスワード", class: "label-login" %>
+        <%= f.password_field :password, class: 'form-control', readonly: true %>
+        
+        <%= f.submit "ログインしています", class: "btn btn-primary btn-block btn-login", disabled: "disabled" %>
+        
+      <% else %>
+        <%= f.label :email, "メールアドレス", class: "label-login" %>
         <%= f.email_field :email, class: 'form-control' %>
 
-        <%= f.label :password, t("sessions.new.password"), class: "label-login" %>
+        <%= f.label :password, "パスワード", class: "label-login" %>
         <%= f.password_field :password, class: 'form-control' %>
       
         <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
           <%= f.check_box :remember_me, id: "remember-me" %>
             <span>ログイン情報を記憶する</span>
-          <% end %>
+        <% end %>
 
         <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
-        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
