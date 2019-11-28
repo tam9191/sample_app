@@ -11,13 +11,16 @@
 
     <p>↓↓初めてのご利用↓↓</p>
     <p>
-      <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
-    </p>
-    <p>
     <% if logged_in? %>
+    <p>
+      <%= link_to "アカウント作成", "#", class: "btn btn-lg btn-success", disabled: "disabled" %>
+    </p>
       <%= link_to "ゲストログイン(管理権限)", "#", class: "btn btn-md btn-danger", disabled: "disabled" %>
       <%= link_to "ゲストログイン(一般権限)", "#", class: "btn btn-md btn-warning", disabled: "disabled" %>
     <% else %>
+    <p>
+      <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
+    </p>
       <%= link_to "ゲストログイン(管理権限)", login_path, class: "btn btn-md btn-danger" %>
       <%= link_to "ゲストログイン(一般権限)", login_path, class: "btn btn-md btn-warning" %>
     <% end %>
